@@ -1,0 +1,48 @@
+
+<%- contentFor('pagebread') %><nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-0 ms-2">
+      <li class="breadcrumb-item">
+        <!-- if breadcrumb is single--><span>Dashboard</span>
+      </li>
+      <li class="breadcrumb-item active"><span>Users</span></li>
+    </ol>
+  </nav>
+  
+  <%- contentFor('body') %>
+  
+  <div class="car"></div>
+       
+            <div class="card mb-4">
+              <div class="card-header"><strong>All Registered Users</strong></div>
+              <div class="card-body">
+                <!--
+                <p class="text-medium-emphasis small">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code> &lt;tbody&gt;</code>.</p>
+              -->
+             
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#ID </th>
+                      <th scope="col"> Name</th>
+                      <th scope="col"> Email</th>
+                      <th scope="col">Registered On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% if(data.length){  
+                      for(var i = 0;i < data.length;i++) { %>
+                    <tr>
+                      <th scope="row"><%= data[i]._id %></th>
+                      <td><%= data[i].name %></td>
+                      <td><%= data[i].email %></td>
+                      <td>  <%= data[i].createdAt.toDateString() %></td>
+                    </tr>
+                    <% }  }else{ %>
+                      <tr>  <td colspan="4">No record found</td>  </tr>
+                      <% } %>  
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>

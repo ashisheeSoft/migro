@@ -1,0 +1,40 @@
+
+
+<%- contentFor('body') %>
+
+<div class="car"></div>
+     
+          <div class="card mb-4">
+            <div class="card-header"><strong>All Registered Devices</strong></div>
+            <div class="card-body">
+              <!--
+              <p class="text-medium-emphasis small">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code> &lt;tbody&gt;</code>.</p>
+            -->
+           
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#Device </th>
+                    <th scope="col">Device Name</th>
+                    <th scope="col">Default Id</th>
+                    <th scope="col">Synced At</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if(data.length){  
+                    for(var i = 0;i < data.length;i++) { %>
+                  <tr>
+                    <th scope="row"><%= data[i]._id %></th>
+                    <td><%= data[i].deviceName %></td>
+                    <td><%= data[i].deviceId %></td>
+                    <td>  <%= data[i].createdAt.toDateString() %></td>
+                  </tr>
+                  <% }  }else{ %>
+                    <tr>  <td colspan="4">No record found</td>  </tr>
+                    <% } %>  
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
